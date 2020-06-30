@@ -19,7 +19,7 @@ import GradientTypes from '../lib/gradient-types';
 import FillColorIndicatorComponent from '../components/fill-color-indicator.jsx';
 import {applyFillColorToSelection,
     applyGradientTypeToSelection,
-    getRotatedColor,
+    generateSecondaryColor,
     swapColorsInSelection,
     MIXED} from '../helper/style-path';
 
@@ -72,7 +72,7 @@ class FillColorIndicator extends React.Component {
         if (this.props.gradientType === GradientTypes.SOLID && gradientType !== GradientTypes.SOLID) {
             // Generate color 2 and change to the 2nd swatch when switching from solid to gradient
             if (!hasSelectedItems) {
-                this.props.onChangeFillColor(getRotatedColor(this.props.fillColor), 1);
+                this.props.onChangeFillColor(generateSecondaryColor(this.props.fillColor), 1);
             }
             this.props.onChangeColorIndex(1);
         }
